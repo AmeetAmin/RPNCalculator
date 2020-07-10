@@ -33,6 +33,7 @@ abstract public class RPNSimpleCalculator<T extends Number> implements Calculato
 				do { 
 					T val2 = getValueOf(myInputStack.pop());
 					val1 = operFunc.apply(val2, val1);
+					break;	// quick fix to remove continuous calculation into stack operands, based on testing against sample
 				}  while (!(myInputStack.isEmpty() || isOperator(myInputStack.peek())));
 				myInputStack.push(val1.toString());
 				retVal = val1.toString();

@@ -33,16 +33,19 @@ public class CliInputInterface extends InputInterface {
 		        // Using Console to input data from user 
 		        System.out.print(" > ");				
 				try {
-					inputLine = br.readLine();
+					inputLine = br.readLine(); 
 				} catch (Exception e) {
 					return;
 				}
-		        if ((inputLine.length() <= 1) && (inputLine.charAt(0) == 'q' || inputLine.charAt(0) == 'Q'))
-		        {
+		        if ((inputLine == null) || 
+		        		(inputLine.length() >= 1) && (inputLine.charAt(0) == 'q' || inputLine.charAt(0) == 'Q'))
+		        {	
 		        	// user request to quit
 		        	return;
 		        }
-		        
+		        if ((inputLine.length() == 0))	// inadvertant ENTER, just ignore
+					continue;
+
 		        processInput(inputLine);
 		        
 
