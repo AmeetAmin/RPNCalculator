@@ -9,7 +9,7 @@ public class InputFactory {
 
 	public static InputFactory getInstance() {
 		if (instance == null ) {
-			synchronized(instance) {
+			synchronized(InputFactory.class) {
 				if (instance == null ) {
 					instance = new InputFactory(); 
 				}

@@ -24,7 +24,14 @@ public class RpnCalcMainApp {
 		
 		CalcProcessor proc = ProcessorFactory.getInstance().create(appConfig);
 		ioIntf.setProcessor(proc);
-		
+		ioIntf.start() ;
+		try {
+			ioIntf.join();
+		}
+        catch (Exception e) { 
+            System.out.println(e); 
+        } 		
+
 	}
 
 

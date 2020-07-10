@@ -2,13 +2,13 @@ package RealPage.CodeTest.RPNCalc.input;
 
 import RealPage.CodeTest.RPNCalc.processor.CalcProcessor;
 
-public interface InputInterface<T> {
+abstract public class InputInterface<T> extends Thread {
 	
-	public T waitInput();
+	abstract public T waitInput();
 	
-	public void pushOutput(T op) ;
+	abstract public void pushOutput(T op) ;
 
-	public void setProcessor(CalcProcessor proc);
+	abstract public void setProcessor(CalcProcessor proc);
 
 
 }

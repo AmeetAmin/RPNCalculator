@@ -10,7 +10,7 @@ public class ProcessorFactory {
 
 	public static ProcessorFactory getInstance() {
 		if (instance == null ) {
-			synchronized(instance) {
+			synchronized(ProcessorFactory.class) {
 				if (instance == null ) {
 					instance = new ProcessorFactory(); 
 				}
