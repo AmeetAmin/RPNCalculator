@@ -59,6 +59,8 @@ This is a simple RPN calculator, which only supports operators "+", "-", "*", "-
 You can enter a series of floating point or integer values or any of the above operators, either in space separated single line, or individually, followed by <Enter>
 Once any of the above operators are detected, a calculation will be performed and the result output. 
 
+To quit application, enter "q"  <ENTER>
+
 
 Example Usage: 
 
