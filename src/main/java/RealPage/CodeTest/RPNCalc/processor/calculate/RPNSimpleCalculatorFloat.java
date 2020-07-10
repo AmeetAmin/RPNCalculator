@@ -6,7 +6,7 @@ import java.util.Stack;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import org.junit.Test;
+//import org.junit.Test;
 
 public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 
@@ -33,8 +33,10 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	protected Float getValueOf(String strVal) {
 		return Float.valueOf(strVal);
 	}
+	
 
-	@Test
+
+	//@Test
 	public void test1_0() {
 		
 		System.out.println("test1_0");
@@ -48,7 +50,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	}
 
 
-	@Test
+	//@Test
 	public void test1_1() {
 		
 		System.out.println("test1_1");
@@ -61,7 +63,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 		System.out.println("Output: " + myInputStack.toString() + " -> " + result);
 	}
 
-	@Test
+	//@Test
 	public void test1_2() {
 		
 		System.out.println("test1_2");
@@ -75,7 +77,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	}
 
 	
-	@Test
+	//@Test
 	public void test1_3() {
 		
 		System.out.println("test1_3");
@@ -90,7 +92,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	
 	
 	
-	@Test
+	//@Test
 	public void test2() {
 		
 		System.out.println("************************** test2 ***************************************");
@@ -105,7 +107,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	}
 	
 	
-	@Test
+	//@Test
 	public void test3() {
 		
 		System.out.println("************************** test3 ***************************************");
@@ -123,7 +125,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	}
 	
 	
-	@Test
+	//@Test
 	public void test4() {
 		
 		System.out.println("************************** test4 ***************************************");
@@ -144,7 +146,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 	}
 		
 	
-	@Test
+	//@Test
 	public void test5() {
 		
 		System.out.println("************************** test5 ***************************************");
@@ -191,7 +193,7 @@ public class RPNSimpleCalculatorFloat extends RPNSimpleCalculator<Float> {
 		System.out.println("Output: " + myInputStack.toString() + " -> " + result);
 		assert(result.equals("4.0"));
 	}
-			
+
 
 }
 	
