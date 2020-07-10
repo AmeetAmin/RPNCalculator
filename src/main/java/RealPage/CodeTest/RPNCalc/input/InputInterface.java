@@ -8,5 +8,7 @@ public interface InputInterface<T> {
 	
 	public void pushOutput(T op) ;
 
+	public void setProcessor(CalcProcessor proc);
+
 
 }

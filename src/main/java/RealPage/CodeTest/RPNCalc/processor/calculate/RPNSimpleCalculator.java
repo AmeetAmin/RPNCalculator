@@ -1,6 +1,7 @@
 package RealPage.CodeTest.RPNCalc.processor.calculate;
 
 import java.awt.peer.SystemTrayPeer;
+import java.util.EmptyStackException;
 import java.util.Optional;
 import java.util.Stack;
 import java.util.function.BiFunction;
@@ -40,6 +41,10 @@ abstract public class RPNSimpleCalculator<T extends Number> implements Calculato
 			System.err.println(exc.toString());
 			return exc.toString();
 		} 
+		catch (EmptyStackException exc) {
+			System.err.println(exc.toString());
+			throw new InvalidSequenceException("No arguments for operator to act on");
+		} 		
 		return retVal;
 	}
 

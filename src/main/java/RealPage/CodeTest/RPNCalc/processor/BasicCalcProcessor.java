@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import RealPage.CodeTest.RPNCalc.app.config.AppConfigProps;
 import RealPage.CodeTest.RPNCalc.app.config.AppConfigProps.TargetDataTypeEnum;
 import RealPage.CodeTest.RPNCalc.processor.calculate.Calculator;
+import RealPage.CodeTest.RPNCalc.processor.calculate.InvalidSequenceException;
 import RealPage.CodeTest.RPNCalc.processor.calculate.RPNSimpleCalculator;
 import RealPage.CodeTest.RPNCalc.processor.calculate.RPNSimpleCalculatorFloat;
 import RealPage.CodeTest.RPNCalc.processor.calculate.RPNSimpleCalculatorInteger;
@@ -31,8 +32,8 @@ public class BasicCalcProcessor implements CalcProcessor {
 		}
 	}
 	
-	public Stream inputReceived(String ipt) {
-		String[] components = ipt.split(separatorRegEx) ; 
+	public Stream<String> inputReceived(String ipt) {
+		String[] components = ipt.split("\\s+") ;  // In case user had number of operands on same input line 
 		List<String> componentList = Arrays.asList(components);
 		Stream output = componentList.stream().map(a -> this.calculateOn(a));
 		return output;
@@ -41,18 +42,17 @@ public class BasicCalcProcessor implements CalcProcessor {
 	
 	String calculateOn(String input) {
 		inputStack.push(input);
-		if (calculator.isOperator(input)) 
-			return calculator.calculate(inputStack);
-		else 
-			return input;
+		try { 	// perform operation, either keep on stack or process, depending on whether last char is operator
+			if (calculator.isOperator(input)) 
+				return calculator.calculate(inputStack);
+			else 
+				return input;
+		} catch (InvalidSequenceException e) {
+			inputStack.empty();	// clear up the stack so we can proceed
+			return "Invalid Input";
+		}
 	}
 	
-
-	@Override
-	public boolean inputReceived(Number ip) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 
 }

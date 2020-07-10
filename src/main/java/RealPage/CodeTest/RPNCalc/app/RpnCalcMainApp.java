@@ -4,6 +4,8 @@ package RealPage.CodeTest.RPNCalc.app;
 import RealPage.CodeTest.RPNCalc.app.config.AppConfigProps;
 import RealPage.CodeTest.RPNCalc.input.InputFactory;
 import RealPage.CodeTest.RPNCalc.input.InputInterface;
+import RealPage.CodeTest.RPNCalc.processor.CalcProcessor;
+import RealPage.CodeTest.RPNCalc.processor.ProcessorFactory;
 
 public class RpnCalcMainApp {
 
@@ -20,7 +22,8 @@ public class RpnCalcMainApp {
 		AppConfigProps.TargetDataTypeEnum data_type = appConfig.dataType();
 		InputInterface ioIntf = InputFactory.getInstance().create(io_Src);
 		
-		
+		CalcProcessor proc = ProcessorFactory.getInstance().create(appConfig);
+		ioIntf.setProcessor(proc);
 		
 	}
 
