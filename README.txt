@@ -87,5 +87,15 @@ Example Usage:
    > q
 
 
+===============================================================
+
+Solution outline:
+
+This is a very simple RPN calculator, which acts on two operands at a time.  The general solution is relatively simple.  This is a Java 1.8 based application, so there is a entry point into the application "App.main()".  
+
+To enable future refinement and enhancements, the solution has provided a set of interfaces to define a framework, that can be used to extend the capablity.  There is a configration object (RealPage/CodeTest/RPNCalc/app/config/AppConfigProps), which is very hollow and returns defaults for this basic solution, but can be extended in the future. 
+The actual calculation logic for RPN and the user input are abstracted from each other, to allow for future growth beyond CLI interfaces.  Given a typical user driven application, a user input will be a triggering event.  Therefore in this solution, the driver is the "RealPage/CodeTest/RPNCalc/input/CliInputInterface", which upon detecting a user event, will process the entry using a registered processor for the data defined by Interface "RealPage/CodeTest/RPNCalc/processor/CalcProcessor". The core application simply registers the processor with the Interface.  
+
+There is use of Factory, Proxy and Singleton patterns to enable some level of abstraction, but nothing significant in terms of the complexity. 
 
 
